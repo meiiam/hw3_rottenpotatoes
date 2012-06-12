@@ -23,9 +23,12 @@ Background: movies have been added to database
 
 Scenario: sort movies alphabetically
   When I follow "Movie Title"
-  # your steps here
+   And I check the following ratings: G
+   And I press "Refresh"
+  Then I should see "Aladdin" before "Chicken Run"
 
 Scenario: sort movies in increasing order of release date
-  When i follow "Release Date"
-  # your steps here
-
+  When I follow "Release Date"
+   And I check the following ratings: R
+   And I press "Refresh"
+  Then I should see "The Terminator" before "Amelie"
